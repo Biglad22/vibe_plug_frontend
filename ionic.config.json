@@ -1,0 +1,7 @@
+{
+  "name": "vibeplug-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+    /* Brand (names match Ionic) */
+    --color-primary: #0b6b4f;
+    --color-primary-contrast: #ffffff;
+    --color-secondary: #f2b134;
+    --color-secondary-contrast: #16181d;
+
+    /* Neutrals (names match Ionic) */
+    --color-light: #f7f5f0;
+    --color-medium: #5b5f66;
+    --color-dark: #16181d;
+
+    /* Surfaces and lines */
+    --color-surface: #ffffff;
+    --color-border: #cfcac0;
+
+    /* Optional third color, only if you adopt it */
+    /* --color-tertiary: #3A5BA0; */
+    /* --color-tertiary-contrast: #FFFFFF; */
+
+    /* Fonts */
+    --font-sans: "DM Sans", system-ui, sans-serif;
+    --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+}

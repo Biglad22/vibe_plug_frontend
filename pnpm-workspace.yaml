@@ -1,0 +1,6 @@
+allowBuilds:
+  core-js: false
+  cypress: false
+  esbuild: false
+minimumReleaseAgeExclude:
+  - '@capacitor/keyboard@8.0.6'
