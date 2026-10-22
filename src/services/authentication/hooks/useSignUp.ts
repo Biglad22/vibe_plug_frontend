@@ -1,12 +1,14 @@
 import { useForm, UseFormReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, SignUpFormData } from "../../../schemas/authentication";
-import { useApiServiceSecurity } from "../..";
-import { authService } from "../services";
+import { useLocalStorage } from "../..";
 import { useProcessState } from "../../../hooks/useProcessState";
 import { useToast } from "../../../hooks/useToast";
 import { useCallback } from "react";
 import { useIonRouter } from "@ionic/react";
+import authService from "../authentication.service";
+import { setUserSession } from "../../../store/userSessionSlice";
+import { useDispatch } from "react-redux";
 
 export function useUsernameAvailability() {
     const { isLoading, setIsLoading, error, setError, clearError } =
@@ -50,7 +52,6 @@ export function useUsernameAvailability() {
     };
 }
 
-
 export interface UseSignUpReturn {
     form: UseFormReturn<SignUpFormData>;
     onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
@@ -59,7 +60,6 @@ export interface UseSignUpReturn {
 
 export const useSignUp = (): UseSignUpReturn => {
     const { isLoading, setIsLoading } = useProcessState();
-    const { setTokens } = useApiServiceSecurity();
     const { present } = useToast();
     const form = useForm<SignUpFormData>({
         resolver: zodResolver(signUpSchema),
@@ -67,13 +67,19 @@ export const useSignUp = (): UseSignUpReturn => {
 
     const router = useIonRouter();
 
+    const dispatch = useDispatch<any>();
+
     const handleFormSubmit = async (data: SignUpFormData) => {
         try {
             setIsLoading(true);
             const { confirm_password, ...signUpPayload } = data;
             const res = await authService.signUp(signUpPayload);
-            await setTokens(res.tokens);
-            router.push("/dashboard/home", "root", "replace");
+            await dispatch(setUserSession(res.tokens));
+            return router.push(
+                `/auth/verify-email?email=${data.email}`,
+                "root",
+                "replace",
+            );
         } catch (error: any) {
             present(error.message || error.details || "Something went wrong.", {
                 type: "error",

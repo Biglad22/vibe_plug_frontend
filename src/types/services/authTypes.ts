@@ -1,14 +1,8 @@
+import { BasicUser } from "./userType";
+
 export interface SignedTokens {
     access_token: string;
     refresh_token: string;
-}
-
-export interface User {
-    id: string;
-    email: string;
-    fullName?: string;
-    avatarUrl?: string;
-    createdAt?: string;
 }
 
 export interface LoginCredentials {
@@ -19,6 +13,7 @@ export interface LoginCredentials {
 export interface AuthResponse {
     message: string;
     tokens: SignedTokens;
+    user: BasicUser;
 }
 
 export interface SignUpData {
@@ -36,3 +31,9 @@ export interface UsernameAvailabilityResponse {
     available: boolean;
     message: string;
 }
+
+export type NewPasswordResetRequest = {
+    email: string;
+    password: string;
+    token: string;
+};

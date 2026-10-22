@@ -11,7 +11,7 @@ import {
 const Events: React.FC = () => {
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="page-header">
                 <IonToolbar>
                     <IonTitle className="ion-padding-horizontal">
                         Events
@@ -21,12 +21,12 @@ const Events: React.FC = () => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Events</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+            <IonContent>
+               <div>
+                <small>
+                    Count:
+                </small>
+               </div>
             </IonContent>
         </IonPage>
     );

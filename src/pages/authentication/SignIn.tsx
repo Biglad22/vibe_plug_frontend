@@ -27,19 +27,7 @@ const SignIn: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader translucent={true}>
-                <IonToolbar>
-                    <IonTitle className="ion-padding-horizontal">
-                        Page Title
-                    </IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent fullscreen className="ion-padding">
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Page Title</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+            <IonContent className="ion-padding">
                 <IonGrid>
                     <IonRow>
                         <IonCol
@@ -49,7 +37,7 @@ const SignIn: React.FC = () => {
                             sizeMd="6"
                             sizeSm="8"
                         >
-                            <div className="mb-6">
+                            <div className="mb-6 text-center">
                                 <IonText color={"light"}>
                                     <h1 className="font-bold">
                                         Sell tickets to your event in minutes.
@@ -135,7 +123,14 @@ const SignIn: React.FC = () => {
                                         </>
                                     )}
                                 />
-
+                                <div className="pt-1">
+                                    <Link
+                                        to={"/auth/reset-password"}
+                                        className="font-medium text-primary"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </div>
                                 <IonButton
                                     expand="block"
                                     size="large"
@@ -152,7 +147,7 @@ const SignIn: React.FC = () => {
                                     expand="block"
                                     size="large"
                                     type="button"
-                                    color={"light"}
+                                    color={"secondary"}
                                     routerLink=""
                                 >
                                     Continue With Google

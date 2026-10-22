@@ -14,6 +14,7 @@ import {
     IonRow,
     IonSpinner,
     IonText,
+    IonTextarea,
     IonTitle,
     IonToolbar,
 } from "@ionic/react";
@@ -26,7 +27,7 @@ import {
     useSignUp,
     useUsernameAvailability,
 } from "../../services/authentication";
-import institutionService from "../../services/authentication/services/institutionService";
+import institutionService from "../../services/institution/institution.service";
 import { SelectOption } from "../../types/generics";
 
 const SignUp: React.FC = () => {
@@ -54,7 +55,7 @@ const SignUp: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="page-header">
                 <IonToolbar>
                     <IonTitle className="ion-padding-horizontal">
                         Create account
@@ -74,7 +75,7 @@ const SignUp: React.FC = () => {
                             sizeMd="6"
                             sizeSm="8"
                         >
-                            <div className="mb-6">
+                            <div className="mb-6 text-center">
                                 <IonText color={"light"}>
                                     <p>
                                         It takes a minute. You'll be creating
@@ -204,29 +205,6 @@ const SignUp: React.FC = () => {
                                     )}
                                 />
 
-                                {/* Bio */}
-                                <div>
-                                    <IonLabel>Bio</IonLabel>
-                                    <Controller
-                                        name="bio"
-                                        control={formMethods.control}
-                                        render={({ field, fieldState }) => (
-                                            <IonInput
-                                                {...field}
-                                                onIonInput={field.onChange}
-                                                fill="outline"
-                                                color="light"
-                                                type="text"
-                                                placeholder="Tell us about yourself"
-                                                errorText={
-                                                    fieldState.error?.message
-                                                }
-                                                className={`${fieldState.invalid ? "ion-invalid ion-touched" : ""}`}
-                                            />
-                                        )}
-                                    />
-                                </div>
-
                                 {/* Password */}
                                 <div>
                                     <IonLabel>Password*</IonLabel>
@@ -338,6 +316,28 @@ const SignUp: React.FC = () => {
                                                     />
                                                 </IonButton>
                                             </IonInput>
+                                        )}
+                                    />
+                                </div>
+
+                                {/* Bio */}
+                                <div className="sm:col-span-2">
+                                    <IonLabel>Bio</IonLabel>
+                                    <Controller
+                                        name="bio"
+                                        control={formMethods.control}
+                                        render={({ field, fieldState }) => (
+                                            <IonTextarea
+                                                {...field}
+                                                onIonInput={field.onChange}
+                                                fill="outline"
+                                                color="light"
+                                                placeholder="Tell us about yourself"
+                                                errorText={
+                                                    fieldState.error?.message
+                                                }
+                                                className={`${fieldState.invalid ? "ion-invalid ion-touched" : ""}`}
+                                            />
                                         )}
                                     />
                                 </div>

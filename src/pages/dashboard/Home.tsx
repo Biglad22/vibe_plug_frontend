@@ -1,14 +1,11 @@
 import {
+    IonButton,
     IonButtons,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardTitle,
     IonCol,
     IonContent,
     IonGrid,
     IonHeader,
+    IonIcon,
     IonMenuButton,
     IonPage,
     IonRow,
@@ -16,65 +13,32 @@ import {
     IonTitle,
     IonToolbar,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
+import { add } from "ionicons/icons";
 
 const Home: React.FC = () => {
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle className="ion-padding-horizontal">Home</IonTitle>
+            <IonHeader className="page-header">
+                <IonToolbar className="ion-padding-horizontal">
+                    <IonTitle>Home</IonTitle>
                     <IonButtons slot="start">
                         <IonMenuButton autoHide />
                     </IonButtons>
+
+                    <IonButton
+                        slot="end"
+                        fill="solid"
+                        shape="round"
+                        color={"secondary"}
+                        size="small"
+                        routerLink="/dashboard/events/new"
+                    >
+                        <IonIcon icon={add} size="medium" />
+                        Create Event
+                    </IonButton>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen className="ion-padding">
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Home</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-                <IonGrid>
-                    <IonRow>
-                        <IonCol>
-                            <IonText>
-                                <h3>Active Events</h3>
-                            </IonText>
-                            <div className="flex items-auto gap-4 overflow-auto w-full">
-                                <Link
-                                    className="p-6 border border-dashed flex items-center justify-center h-full border-medium rounded-lg"
-                                    to="/dashboard/event/new"
-                                >
-                                    <div>
-                                        <IonText color={"light"}>
-                                            <h6>Create Event</h6>
-                                        </IonText>
-                                    </div>
-                                </Link>
-
-                                <IonCard className="p-4 sm:p-6 w-fit">
-                                    <IonCardHeader>
-                                        <IonCardTitle>Event Title</IonCardTitle>
-                                        <IonCardSubtitle>
-                                            Created yesterday
-                                        </IonCardSubtitle>
-                                    </IonCardHeader>
-
-                                    <div className="space">
-                                        <IonText>
-                                            <h2 className=" text-light">
-                                                Av. Tickets
-                                            </h2>
-                                            <h6 className="">Av. Tickets</h6>
-                                        </IonText>
-                                    </div>
-                                </IonCard>
-                            </div>
-                        </IonCol>
-                    </IonRow>
-                </IonGrid>
-            </IonContent>
+            <IonContent className="ion-padding"></IonContent>
         </IonPage>
     );
 };

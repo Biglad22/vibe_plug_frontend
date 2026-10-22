@@ -1,5 +1,5 @@
-import axiosInstance from "../..";
-import { AllInstitutionResponse } from "../../../types/services/institutionTypes";
+import axiosInstance from "..";
+import { AllInstitutionResponse } from "../../types/services/institutionTypes";
 
 const institutionService = {
     getAllInstitutions: async (): Promise<AllInstitutionResponse> => {

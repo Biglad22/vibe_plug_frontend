@@ -74,3 +74,20 @@ ion-select::part(container) {
     justify-content: space-between;
     width: 100%;
 }
+
+ion-split-pane {
+    --side-max-width: 240px;
+}
+
+ion-header.page-header {
+    --background: transparent;
+    box-shadow: none;
+}
+
+ion-header.page-header > ion-toolbar {
+    --background: transparent;
+}
+
+ion-input {
+    --border-radius: 16px;
+}

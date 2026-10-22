@@ -11,7 +11,7 @@ import {
 const Profile: React.FC = () => {
     return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="page-header">
                 <IonToolbar>
                     <IonTitle className="ion-padding-horizontal">
                         Profile

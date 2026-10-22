@@ -8,3 +8,8 @@ export interface MessageDataResponse<T extends any> {
 }
 
 
+export interface PaginatedResponse<T extends any>{
+    count:number;
+    page:number;
+    data:T;
+}

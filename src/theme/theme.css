@@ -14,6 +14,7 @@
 
     /* Surfaces and lines */
     --color-surface: #ffffff;
+    --color-dark-surface: #0000;
     --color-border: #cfcac0;
 
     /* Optional third color, only if you adopt it */
